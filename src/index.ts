@@ -47,8 +47,7 @@ app.http("handler", {
 
         setAdapter({
           name: "@bluvenit/azure-adapter-astro",
-          serverEntrypoint:
-            "/Users/lennart/code/bluvenit/astro-adapter-azure/dist/ssr-function.js",
+          serverEntrypoint: "@bluvenit/azure-adapter-astro/ssr-function.js",
           exports: ["default"],
           adapterFeatures: {
             functionPerRoute: false,
