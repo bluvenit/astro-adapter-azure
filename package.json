@@ -1,0 +1,43 @@
+{
+  "name": "@bluvenit/astro-adapter-azure",
+  "description": "Deploy your site to Azure using SWA",
+  "version": "0.0.1",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "author": "lgastler",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluvenit/azure-adapter-azure.git"
+  },
+  "keywords": [
+    "withastro",
+    "astro-adapter"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./ssr-function.js": "./dist/ssr-function.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "astro": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.17.8",
+    "astro": "^4.3.5",
+    "typescript": "^5.2.2",
+    "vitest": "^1.3.1"
+  },
+  "astro": {
+    "external": true
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.1"
+  }
+}
