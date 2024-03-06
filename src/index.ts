@@ -1,12 +1,33 @@
 import type { AstroConfig, AstroIntegration } from "astro";
 import { readFile, writeFile } from "fs/promises";
 
+import {
+  dotFuncignoreFile,
+  hostJson,
+  localSettingsJson,
+  packageJson,
+} from "./constants.js";
+
 export default function azureIntegration(): AstroIntegration {
   let rootDir: URL;
   let outDir: URL;
   let _config: AstroConfig;
 
-  const ssrOutputDir = () => new URL("./api/src/", rootDir);
+  const ssrOutputDir = () => new URL("./.api/src/", rootDir);
+  const ssrDir = () => new URL("./.api/", rootDir);
+
+  async function writeHelperFiles() {
+    await Promise.all([
+      writeFile(new URL("./.funcignore", ssrDir()), dotFuncignoreFile, "utf8"),
+      writeFile(new URL("./host.json", ssrDir()), hostJson, "utf8"),
+      writeFile(
+        new URL("./local.settings.json", ssrDir()),
+        localSettingsJson,
+        "utf8"
+      ),
+      writeFile(new URL("./package.json", ssrDir()), packageJson, "utf8"),
+    ]);
+  }
 
   async function writeSSRFunction(notFoundContent?: string) {
     await writeFile(
@@ -70,6 +91,7 @@ app.http("handler", {
             );
           } catch {}
           await writeSSRFunction(notFoundContent);
+          await writeHelperFiles();
         }
       },
     },
