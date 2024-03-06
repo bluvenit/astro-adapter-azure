@@ -1,5 +1,11 @@
 # @bluvenit/astro-adapter-azure
 
+## 0.0.4
+
+### Patch Changes
+
+- Fix correct dist content
+
 ## 0.0.3
 
 ### Patch Changes
