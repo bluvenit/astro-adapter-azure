@@ -1,7 +1,7 @@
 {
   "name": "@bluvenit/astro-adapter-azure",
   "description": "Deploy your site to Azure using SWA",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "types": "./dist/index.d.ts",
   "author": "lgastler",
