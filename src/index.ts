@@ -30,6 +30,7 @@ export default function azureIntegration(): AstroIntegration {
   }
 
   async function writeSSRFunction(notFoundContent?: string) {
+    const escapedContent = notFoundContent ? JSON.stringify(notFoundContent) : undefined;
     await writeFile(
       new URL("./index.mjs", ssrOutputDir()),
       `
@@ -40,7 +41,7 @@ app.http("handler", {
   methods: ["GET", "POST"],
   authLevel: "anonymous",
   route: "{*segments}",
-  handler: createSSRHandler({ notFoundContent: ${notFoundContent} }),
+  handler: createSSRHandler({ notFoundContent: ${escapedContent} }),
 });
 `
     );
