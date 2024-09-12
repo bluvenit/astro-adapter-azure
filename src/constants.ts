@@ -50,6 +50,7 @@ export const packageJson = `
     "test": "echo 'No tests yet...'"
   },
   "dependencies": {
+    "@bluvenit/astro-adapter-azure": "^0.0.4",
     "@azure/functions": "^4.0.0"
   },
   "devDependencies": {},
