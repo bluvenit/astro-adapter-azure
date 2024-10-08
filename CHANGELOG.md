@@ -1,5 +1,10 @@
 # @bluvenit/astro-adapter-azure
 
+## 0.0.5
+
+- Add astro-adapter-azure to runtime dependencies
+- Fix errors
+
 ## 0.0.4
 
 ### Patch Changes

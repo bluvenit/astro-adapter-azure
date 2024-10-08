@@ -6,7 +6,6 @@ dist/
 .netlify
 _site/
 *.log
-package-lock.json
 .turbo/
 .eslintcache
 .pnpm-store
